@@ -5,9 +5,11 @@ import Search from './Components/SearchBar/Search';
 import { CompanySearch } from './company';
 import { searchCompanies } from './api';
 import { isArray } from 'util';
+import PortfolioList from './Components/Portfolio/PortfolioList/PortfolioList';
 
 function App() {
   const [search, setSearch] = useState<string>("")
+  const [portfoliioValues, setPortfolioValues] = useState<string[]>([])
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([])
   const [serverError, setServerError] = useState<string>("")
 
@@ -16,9 +18,13 @@ function App() {
     //console.log(e)
   }
 
-  const onPortfolioCreate = (e: SyntheticEvent) => {
+  const onPortfolioCreate = (e: any) => {
     e.preventDefault()
-    console.log(e)
+    const exists = portfoliioValues.find((value) => value === e.target[0].value)
+    if (exists) return;
+    const updatedPortfolio = [...portfoliioValues, e.target[0].value]
+    setPortfolioValues(updatedPortfolio)
+    //console.log(e)
   }
   
   const onSearchSubmit = async (e: SyntheticEvent) => {
@@ -33,8 +39,16 @@ function App() {
   }
   return (
     <div className="App">
-      <Search onSearchSubmit={onSearchSubmit} search={search} handleSearchChange={handleSearchChange} />
-      <CardList searchResults={searchResult} onPortfolioCreate={onPortfolioCreate}/>
+      <Search 
+        onSearchSubmit={onSearchSubmit} 
+        search={search} 
+        handleSearchChange={handleSearchChange} />
+      <PortfolioList 
+        portfolioValues={portfoliioValues} 
+      />
+      <CardList 
+        searchResults={searchResult} 
+        onPortfolioCreate={onPortfolioCreate}/>
       {serverError && <h1>{serverError}</h1>}
     </div>
   );
