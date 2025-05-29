@@ -9,8 +9,8 @@ import Tile from '../../Components/Tile/Tile'
 interface Props {}
 
 const CompanyPage = (props: Props) => {
-
   let { ticker } = useParams()
+  
   const [company, setCompany] = useState<CompanyProfile>()
 
   useEffect(() =>  {
