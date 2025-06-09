@@ -27,3 +27,6 @@ C:\Users\happy\OneDrive\Documents\GitHub\FinanceProject\main-repo\api\obj\Debug\
 C:\Users\happy\OneDrive\Documents\GitHub\FinanceProject\main-repo\api\obj\Debug\net9.0\api.pdb
 C:\Users\happy\OneDrive\Documents\GitHub\FinanceProject\main-repo\api\obj\Debug\net9.0\api.genruntimeconfig.cache
 C:\Users\happy\OneDrive\Documents\GitHub\FinanceProject\main-repo\api\obj\Debug\net9.0\ref\api.dll
+C:\Users\happy\OneDrive\Documents\GitHub\FinanceProject\main-repo\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\happy\OneDrive\Documents\GitHub\FinanceProject\main-repo\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\happy\OneDrive\Documents\GitHub\FinanceProject\main-repo\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
