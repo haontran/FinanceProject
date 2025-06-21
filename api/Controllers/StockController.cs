@@ -20,7 +20,7 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             var stocks = _context.Stocks.ToList()
              .Select(s => s.ToStockDTO());
