@@ -28,7 +28,7 @@ namespace api.Controllers
             return Ok(commentDto);
         }
 
-        [HttpPost]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var comment = await _commentRepo.GetByIdAsync(id);
@@ -40,5 +40,8 @@ namespace api.Controllers
 
             return Ok(comment.ToCommentDto());
         }
+
+        [HttpPost("{stockId}")]
+        public async Task<IActionResult> Create([FromRoute] int stockId)
     }
 }
