@@ -52,11 +52,11 @@
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[10.0.0-preview.6.25358.103, )"
+              "version": "[9.0.6, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[10.0.0-preview.6.25358.103, )"
+              "version": "[9.0.6, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
@@ -78,9 +78,13 @@
               "target": "Package",
               "version": "[9.0.6, )"
             },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
-              "version": "[10.0.0-preview.6.25358.103, )"
+              "version": "[9.0.6, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
