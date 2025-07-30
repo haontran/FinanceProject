@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -10,9 +12,12 @@ namespace api.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        public AccountController(Parameters)
+        private readonly UserManager<AppUser> _userManager;
+        public AccountController(UserManager<AppUser> userManager)
         {
-            
+            _userManager = userManager;
         }
+
+        [HttpPost("refister")]
     }
 }
