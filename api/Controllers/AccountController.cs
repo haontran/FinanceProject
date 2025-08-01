@@ -18,6 +18,10 @@ namespace api.Controllers
             _userManager = userManager;
         }
 
-        [HttpPost("refister")]
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
+        {
+            
+        }
     }
 }
