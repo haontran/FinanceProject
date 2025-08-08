@@ -31,7 +31,20 @@ namespace api.Service
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
-            //9:33
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddDays(7),
+                SigningCredentials = creds,
+                Issuer = _config["Jwt:Issuer"],
+                Audience = _config["JWT:Audience"]
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+
+            return tokenHandler.WriteToken(token);
         }
     }
 }
