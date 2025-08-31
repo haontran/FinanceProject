@@ -22,6 +22,7 @@ namespace api.Controllers
         {
             _userManager = userManager;
             _tokenService = tokenService;
+            _signinManager = signInManager;
         }
 
         [HttpPost("login")]
@@ -29,12 +30,28 @@ namespace api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+            
+            if (loginDto == null || string.IsNullOrWhiteSpace(loginDto.Username) || string.IsNullOrWhiteSpace(loginDto.Password))
+            {
+                return BadRequest("Invalid login request.");
+            }
 
             var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.Username.ToLower());
 
             if (user == null) return Unauthorized("Invalid username!");
 
             var result = await _signinManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+
+            if (!result.Succeeded) return Unauthorized("Username not found and/or password incorrect");
+
+            return Ok(
+                new NewUserDto
+                {
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    Token = _tokenService.CreateToken(user)
+                }
+            );
         }
 
         [HttpPost("register")]
